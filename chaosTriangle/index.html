@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equilateral Triangle Chaos Game</title>
+    <style>
+        html, body{
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+        #controls{
+            position:absolute;
+            top:1rem;
+            left:1rem;
+            padding: 0.5rem;
+            background-color: lightgray;
+            border-radius: 0.5rem;
+            text-align: right;  
+        }
+    </style>
+</head>
+<body>
+    <div id="controls">
+        <label for="sides">Number of sides (3-10000):</label>
+        <input type="number" id="sides" name="sides" min="3" max="10000" value="3"/><br />
+        <label for="iterations">Number of iterations:</label>
+        <input type="number" id="iterations" name="iterations" min="1" max="10000000" value="10000"/><br />
+        <label for="opacity">Opacity:</label>
+        <input type="range" id="opacity" name="opacity" min="0.0" max="1.0" step="0.05" value="1.0"/>
+    </div>
+    <canvas id="canvas" width="800" height="800"></canvas>
+    <script src="script.js"></script>
+</body>
+</html>
