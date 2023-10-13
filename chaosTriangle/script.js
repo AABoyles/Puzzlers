@@ -39,7 +39,7 @@ let sidesInput = document.querySelector("#sides");
 let iterationsInput = document.querySelector("#iterations");
 let opacityInput = document.querySelector("#opacity");
 
-const main() = function(){
+const main = function(){
   clearCanvas();
   const numSides = parseInt(sidesInput.value);
 
