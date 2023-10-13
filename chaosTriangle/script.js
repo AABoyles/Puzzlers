@@ -66,7 +66,7 @@ const main = function(){
 
   ctx.fillStyle = "blue";
   ctx.globalAlpha = parseFloat(opacityInput.value);
-  while(i < iterations) {
+  while(iterations--) {
     let batch = [];
     for(j = 0; j < 1000; j++){
       batch = []
