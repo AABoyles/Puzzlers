@@ -67,7 +67,7 @@ const main = function(){
   ctx.fillStyle = "blue";
   ctx.globalAlpha = parseFloat(opacityInput.value);
   while(i < iterations) {
-    const batch;
+    let batch = [];
     for(j = 0; j < 1000; j++){
       batch = []
       // Randomly select one of the vertices
@@ -83,8 +83,8 @@ const main = function(){
       };
       batch.push(currentPoint);
     }
+    drawVertices(batch);
   }
-  drawVertices(batch);
 }
 
 main();
