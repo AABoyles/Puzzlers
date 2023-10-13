@@ -38,6 +38,7 @@ const clearCanvas = () => ctx.clearRect(0, 0, width, height);
 let sidesInput = document.querySelector("#sides");
 let iterationsInput = document.querySelector("#iterations");
 let opacityInput = document.querySelector("#opacity");
+let stepLengthInput = document.querySelector("#stepLength");
 
 const main = function(){
   clearCanvas();
@@ -62,7 +63,8 @@ const main = function(){
   const colors = ["#1f77b4","#ff7f0e","#2ca02c","#d62728","#9467bd","#8c564b","#e377c2","#7f7f7f","#bcbd22","#17becf"];
 
   // Define the number of iterations
-  const iterations = parseInt(iterationsInput.value);
+  let iterations = parseInt(iterationsInput.value);
+  let stepLength = parseFloat(stepLengthInput.value);
 
   ctx.fillStyle = "blue";
   ctx.globalAlpha = parseFloat(opacityInput.value);
@@ -72,12 +74,12 @@ const main = function(){
       batch = []
       // Randomly select one of the vertices
       const selectedIndex = Math.floor(Math.random() * numSides);
-      const selectedVertex = vertices[selectedIndex];
+      const selectedVertex = outerVertices[selectedIndex];
 
       // Compute the next point, which is halfway between the current point and the selected vertex
       currentPoint = {
-        x: (currentPoint.x + selectedVertex.x) / 2,
-        y: (currentPoint.y + selectedVertex.y) / 2,
+        x: (currentPoint.x + selectedVertex.x) * stepLength,
+        y: (currentPoint.y + selectedVertex.y) * stepLength,
         r: 1,
         color: colors[selectedIndex]
       };
@@ -92,3 +94,4 @@ main();
 sidesInput.addEventListener("input", main);
 iterationsInput.addEventListener("input", main);
 opacityInput.addEventListener("input", main);
+stepLengthInput.addEventListener("input", main);
